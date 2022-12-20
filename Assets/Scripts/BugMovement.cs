@@ -11,6 +11,7 @@ public class BugMovement : MonoBehaviour
         Start,
         Move,
         Idle,
+        Scare,
         Run,
         Eat
     }
@@ -18,13 +19,16 @@ public class BugMovement : MonoBehaviour
     private CharacterController _characterController;
     [SerializeField] private Transform bugNest;
     [SerializeField] private float nestRadius;
-    [SerializeField] private Vector3 _pointToMove;
+     private Vector3 _pointToMove;
 
     [SerializeField] private float normalSpeed;
     [SerializeField] private float runSpeed;
-    private Transform _player;
+    [SerializeField] private Transform _player;
+    [SerializeField] private float scareLength = 0.5f;
+    private Vector3 _offset;
     private State _animState;
     private Coroutine _idleCoroutine;
+    private Vector3 _runVector;
 
     // Start is called before the first frame update
     private void Awake()
@@ -37,27 +41,31 @@ public class BugMovement : MonoBehaviour
         _animState = State.Start;
         _pointToMove = Vector3.zero;
     }
-
-    // Update is called once per frame
-    private Vector3 offset;
+    
     void Update()
     {
+        Vector3 offsetToPlayer = transform.position - _player.position;
+        offsetToPlayer.y = .0f;
+        if (offsetToPlayer.magnitude < scareLength && _animState != State.Run)
+        {
+            _animState = State.Scare;
+        }
         switch (_animState)
         {
                 case State.Start:
                     Vector2 randomCircle = UnityEngine.Random.insideUnitCircle * nestRadius;
                     _pointToMove = new Vector3(randomCircle.x, transform.position.y, randomCircle.y);
-                    offset = _pointToMove - transform.position;
+                    _offset = _pointToMove - transform.position;
                     _animState = State.Move;
                     break;
                 case State.Eat:
                     break;
                 case State.Move:
-                    offset = _pointToMove - transform.position;
-                    if (offset.magnitude > .1f)
+                    _offset = _pointToMove - transform.position;
+                    if (_offset.magnitude > .1f)
                     {
-                        offset = offset.normalized * normalSpeed;
-                        _characterController.Move(offset * Time.deltaTime);
+                        _offset = _offset.normalized * normalSpeed;
+                        _characterController.Move(_offset * Time.deltaTime);
                     }
                     else
                     {
@@ -71,7 +79,23 @@ public class BugMovement : MonoBehaviour
                     }
                         
                     break;
+                case State.Scare:
+                    //bug near nest or no
+                    //x^2 + y^2 < r^2
+                    if (transform.position.x * transform.position.x + transform.position.y * transform.position.y <
+                        nestRadius * nestRadius)
+                    {
+                        _runVector = Vector3.Normalize(offsetToPlayer) * runSpeed;
+                    }
+                    else
+                    {
+                        _runVector = Vector3.Normalize(-offsetToPlayer) * runSpeed;
+                    }
+                    
+                    StartCoroutine(RunFromThePlayer());
+                    break;
                 case State.Run:
+                    _characterController.Move( _runVector * Time.deltaTime);
                     break;
         }
     }
@@ -81,5 +105,12 @@ public class BugMovement : MonoBehaviour
         yield return new WaitForSeconds(UnityEngine.Random.Range(1.0f, 2.0f));
         _animState = State.Start;
         _idleCoroutine = null;
+    }
+
+    IEnumerator RunFromThePlayer()
+    {
+        _animState = State.Run;
+        yield return new WaitForSeconds(1.0f);
+        _animState = State.Start;
     }
 }
