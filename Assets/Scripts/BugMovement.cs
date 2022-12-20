@@ -13,22 +13,22 @@ public class BugMovement : MonoBehaviour
         Idle,
         Scare,
         Run,
-        Eat
+        MoveToFood,
+        Eating,
     }
 
     private CharacterController _characterController;
     [SerializeField] private Transform bugNest;
     [SerializeField] private float nestRadius;
-     private Vector3 _pointToMove;
-
     [SerializeField] private float normalSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private Transform _player;
     [SerializeField] private float scareLength = 0.5f;
+    private Vector3 _targetToMove;
     private Vector3 _offset;
-    private State _animState;
+    private State _state;
     private Coroutine _idleCoroutine;
-    private Vector3 _runVector;
+    private Vector3 _velocity;
 
     // Start is called before the first frame update
     private void Awake()
@@ -38,30 +38,43 @@ public class BugMovement : MonoBehaviour
 
     void Start()
     {
-        _animState = State.Start;
-        _pointToMove = Vector3.zero;
+        _state = State.Start;
+        _targetToMove = Vector3.zero;
     }
     
     void Update()
     {
         Vector3 offsetToPlayer = transform.position - _player.position;
         offsetToPlayer.y = .0f;
-        if (offsetToPlayer.magnitude < scareLength && _animState != State.Run)
+        if (offsetToPlayer.magnitude < scareLength && _state != State.Run && _state != State.MoveToFood && _state != State.Eating)
         {
-            _animState = State.Scare;
+            _state = State.Scare;
         }
-        switch (_animState)
+        switch (_state)
         {
                 case State.Start:
                     Vector2 randomCircle = UnityEngine.Random.insideUnitCircle * nestRadius;
-                    _pointToMove = new Vector3(randomCircle.x, transform.position.y, randomCircle.y);
-                    _offset = _pointToMove - transform.position;
-                    _animState = State.Move;
+                    _targetToMove = new Vector3(randomCircle.x, transform.position.y, randomCircle.y);
+                    _offset = _targetToMove - transform.position;
+                    _state = State.Move;
                     break;
-                case State.Eat:
+                case State.MoveToFood:
+                    _velocity = (_targetToMove - transform.position);
+                    //Debug.Log(_velocity.magnitude);
+                    if (_velocity.magnitude > .1f)
+                    {
+                        _velocity = _velocity.normalized * normalSpeed;
+                        _characterController.Move(_velocity * Time.deltaTime);
+                    }
+                    else
+                    {
+                        _state = State.Eating;
+                    }
+                    break;
+                case State.Eating:
                     break;
                 case State.Move:
-                    _offset = _pointToMove - transform.position;
+                    _offset = _targetToMove - transform.position;
                     if (_offset.magnitude > .1f)
                     {
                         _offset = _offset.normalized * normalSpeed;
@@ -69,7 +82,7 @@ public class BugMovement : MonoBehaviour
                     }
                     else
                     {
-                        _animState = State.Idle;
+                        _state = State.Idle;
                     }
                     break;
                 case State.Idle:
@@ -85,32 +98,43 @@ public class BugMovement : MonoBehaviour
                     if (transform.position.x * transform.position.x + transform.position.y * transform.position.y <
                         nestRadius * nestRadius)
                     {
-                        _runVector = Vector3.Normalize(offsetToPlayer) * runSpeed;
+                        _velocity = Vector3.Normalize(offsetToPlayer) * runSpeed;
                     }
                     else
                     {
-                        _runVector = Vector3.Normalize(-offsetToPlayer) * runSpeed;
+                        _velocity = Vector3.Normalize(-offsetToPlayer) * runSpeed;
                     }
                     
                     StartCoroutine(RunFromThePlayer());
                     break;
                 case State.Run:
-                    _characterController.Move( _runVector * Time.deltaTime);
+                    _characterController.Move( _velocity * Time.deltaTime);
                     break;
         }
+    }
+
+    public void FinishEating()
+    {
+        _state = State.Start;
+    }
+
+    public void GoingToEat(Vector3 target)
+    {
+        _targetToMove = target;
+        _state = State.MoveToFood;
     }
 
     IEnumerator BugIdle()
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(1.0f, 2.0f));
-        _animState = State.Start;
+        _state = State.Start;
         _idleCoroutine = null;
     }
 
     IEnumerator RunFromThePlayer()
     {
-        _animState = State.Run;
+        _state = State.Run;
         yield return new WaitForSeconds(1.0f);
-        _animState = State.Start;
+        _state = State.Start;
     }
 }
