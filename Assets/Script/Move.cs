@@ -18,19 +18,20 @@ public class Move : MonoBehaviour
     }
     private void Update()
     {
-        if (hold)
-        {
-            gravity = 0;
-        }
-        else
-        {
-            gravity = -4;
-        }
-        speed = 1.5f;
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed *= 2;
-        }
+        
+        // if (hold)
+        // {
+        //     gravity = 0;
+        // }
+        // else
+        // {
+        //     gravity = -4;
+        // }
+        // speed = 1.5f;
+        // if (Input.GetKey(KeyCode.LeftShift))
+        // {
+        //     speed *= 2;
+        // }
         float vert = Input.GetAxis("Vertical");
         float hor = Input.GetAxis("Horizontal");
         if (_charController.isGrounded || hold)
@@ -41,11 +42,10 @@ public class Move : MonoBehaviour
                 _jumpSpeed = jumpForce;
             }
         }
-        //add graviation
-        _jumpSpeed += gravity * Time.deltaTime;
+        //add gravitation
+        _jumpSpeed += (hold ? 0 : gravity) * Time.deltaTime;
         
         //create direction
-        
         Vector3 velocity = new Vector3(hor, .0f, vert);
         velocity *= speed;
         velocity = transform.TransformVector(velocity);
@@ -56,9 +56,9 @@ public class Move : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.gameObject.tag.Equals("slope"))
         {
-            _jumpSpeed = 0;
             hold = true;
         }
     }

@@ -19,7 +19,6 @@ public class Rotation : MonoBehaviour
     void Update()
     {
         _rotationX = Input.GetAxis("Mouse X") * sensitivityVert;
-        Debug.Log(_rotationY);
         transform.rotation *= Quaternion.Euler(.0f,_rotationX,.0f);
     }
 
