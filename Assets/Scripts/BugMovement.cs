@@ -49,6 +49,7 @@ public class BugMovement : MonoBehaviour
         if (offsetToPlayer.magnitude < scareLength && _state != State.Run && _state != State.MoveToFood && _state != State.Eating)
         {
             _state = State.Scare;
+            
         }
         switch (_state)
         {
