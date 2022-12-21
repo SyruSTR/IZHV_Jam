@@ -34,6 +34,7 @@ public class BugMovement : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        transform.position = transform.localRotation * Vector3.back;
     }
 
     void Start()
