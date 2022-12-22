@@ -6,7 +6,9 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     private CharacterController _charController;
-    [SerializeField] private float speed;
+    private float speed;
+    [SerializeField] private float walking;
+    [SerializeField] private float running;
     [SerializeField] private float gravity;
     [SerializeField] private float jumpForce;
     private float _jumpSpeed = 0.0f;
@@ -32,6 +34,14 @@ public class Move : MonoBehaviour
         // {
         //     speed *= 2;
         // }
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = running;
+        }
+        else
+        {
+            speed = walking;
+        }
         float vert = Input.GetAxis("Vertical");
         float hor = Input.GetAxis("Horizontal");
         if (_charController.isGrounded || hold)
