@@ -1,0 +1,102 @@
+# Blender 3.4.1 MTL File: 'untitled.blend'
+# www.blender.org
+
+newmtl Shirt
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.298165 0.298165 0.298165
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl eyebrow012
+Ns 4.999998
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/eyebrow012.png
+map_d D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/eyebrow012.png
+
+newmtl eyelashes01
+Ns 4.999998
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/eyelashes01.png
+map_d D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/eyelashes01.png
+
+newmtl gloves
+Ns 118.361252
+Ka 1.000000 1.000000 1.000000
+Kd 0.003317 0.003317 0.003317
+Ks 0.389908 0.389908 0.389908
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl high-poly
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/deepblue_eye.png
+map_d D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/deepblue_eye.png
+
+newmtl male_muscle_13290
+Ns 4.999998
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/middleage_lightskinned_male_diffuse.png
+
+newmtl short04
+Ns 9.600003
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/short04_diffuse.png
+map_d D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/short04_diffuse.png
+
+newmtl teeth_shape05
+Ns 8.000002
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 3
+map_Kd D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/teeth.png
+map_d D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/teeth.png
+
+newmtl tongue01
+Ns 1.960997
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd D:/FIT 2 rok/1ZHERV/Blender/Исследователь/textures/tongue01_diffuse.png
+
+newmtl trausers
+Ns 531.962769
+Ka 1.000000 1.000000 1.000000
+Kd 0.002897 0.002897 0.002897
+Ks 0.059633 0.059633 0.059633
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
