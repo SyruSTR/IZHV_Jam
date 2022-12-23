@@ -6,19 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3d42307b-0dd2-457b-86f6-ba95915a37d4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IZHV_jam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IZHV_jam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/LabBase.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/LabBase.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/blenderFiles/LabFloor.blend" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/blenderFiles/LabFloor.blend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LightBug.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LightBug.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BugsGameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BugsGameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Slope.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Slope.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Move.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Move.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Rotation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Rotation.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Rotation_Camera.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Rotation_Camera.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BugMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BugMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Move.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Move.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +39,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\IZHV_jam.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\_Programing\Unity\IZHV_jam\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Programs\Unity\2021.3.16f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\_Programing\Unity\IZHV_jam -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -87,7 +87,8 @@
       <workItem from="1671529474686" duration="16900000" />
       <workItem from="1671554195895" duration="5116000" />
       <workItem from="1671619510516" duration="4931000" />
-      <workItem from="1671722095226" duration="7376000" />
+      <workItem from="1671722095226" duration="7377000" />
+      <workItem from="1671793377573" duration="505000" />
     </task>
     <servers />
   </component>

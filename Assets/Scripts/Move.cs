@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -54,7 +54,9 @@ public class Move : MonoBehaviour
         _charController.Move(velocity * Time.deltaTime);
 
     }
-    private void OnTriggerEnter(Collider other)
+    
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag.Equals("slope"))
         {
