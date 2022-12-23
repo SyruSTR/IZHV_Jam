@@ -22,7 +22,7 @@ public class BugMovement : MonoBehaviour
     [SerializeField] private float nestRadius;
     [SerializeField] private float normalSpeed;
     [SerializeField] private float runSpeed;
-    [SerializeField] private Transform _player;
+    private Transform _player;
     [SerializeField] private float scareLength = 0.5f;
     private Vector3 _targetToMove;
     private Vector3 _offset;
@@ -34,7 +34,7 @@ public class BugMovement : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-        transform.position = transform.localRotation * Vector3.back;
+        _player = FindObjectOfType<Move>().transform;
     }
 
     void Start()
@@ -56,7 +56,7 @@ public class BugMovement : MonoBehaviour
         {
                 case State.Start:
                     Vector2 randomCircle = UnityEngine.Random.insideUnitCircle * nestRadius;
-                    _targetToMove = new Vector3(randomCircle.x, transform.position.y, randomCircle.y);
+                    _targetToMove = new Vector3(randomCircle.x+bugNest.position.x, transform.position.y, randomCircle.y+bugNest.position.z);
                     _offset = _targetToMove - transform.position;
                     _state = State.Move;
                     break;

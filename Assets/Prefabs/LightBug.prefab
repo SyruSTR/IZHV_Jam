@@ -93,7 +93,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4228258665811031471}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.50000006
   m_Height: 1.999999
   m_Direction: 1
@@ -191,7 +191,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4838355133511562750}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.50000006
   m_Height: 1.999999
   m_Direction: 1
@@ -208,7 +208,8 @@ GameObject:
   - component: {fileID: 5117566812965446711}
   - component: {fileID: 2517541178145864397}
   - component: {fileID: 25221648110720340}
-  - component: {fileID: 1025044447071813129}
+  - component: {fileID: 5283039716921229728}
+  - component: {fileID: 3712199311206427929}
   m_Layer: 0
   m_Name: LightBug
   m_TagString: Untagged
@@ -291,13 +292,30 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4888199594366952002}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &1025044447071813129
+--- !u!114 &5283039716921229728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4888199594366952002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f16b82c16c02c41b6460c5011432a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugNest: {fileID: 0}
+  nestRadius: 3
+  normalSpeed: 3
+  runSpeed: 10
+  scareLength: 3
+--- !u!143 &3712199311206427929
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -308,7 +326,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.5
+  m_Height: 1
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
